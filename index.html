@@ -31,317 +31,333 @@
     </header>
 
     <!-- Navegação de Categorias / Abas -->
-    <nav class="categorias-nav-container">
-      <div class="categorias-nav">
-        <button
-          class="tab-btn active"
-          onclick="filtrarCategoria('todos', event)"
-        >
-          <i class="fas fa-th-large"></i> Cardápio Completo
-        </button>
-        <button class="tab-btn" onclick="filtrarCategoria('paes', event)">
-          <i class="fas fa-bread-slice"></i> Salgados e Pães
-        </button>
-        <button class="tab-btn" onclick="filtrarCategoria('doces', event)">
-          <i class="fas fa-cookie-bite"></i> Doces e Biscoitos
-        </button>
-      </div>
-    </nav>
-
-    <!-- Conteúdo Principal: Tela do Cardápio -->
-    <main id="tela-cardapio" class="container">
-      <!-- Seção: Salgados e Pães -->
-      <section class="secao-categoria" data-categoria="paes">
-        <h2 class="categoria-titulo">
-          <i class="fas fa-utensils"></i> Salgados e Pães
-        </h2>
-        <div class="produtos-grid">
-          <!-- Pão Tradicional -->
-          <div class="produto-card">
-            <div class="produto-img-wrapper">
-            <img src="pao-tradicional.jpg" alt="Pão caseiro tradicional" onclick="abrirModalFoto(this.src)" />
-              <span class="badge-artesanal">100% Artesanal</span>
-            </div>
-            <div class="produto-info">
-              <h3>Pão Caseiro Tradicional</h3>
-              <p>Saborosamente macio, fresquinho e sem conservantes.</p>
-              <span class="preco">R$ 12,00</span>
-              <div class="controles-produto">
-                <input
-                  type="number"
-                  id="qtd-pao-tradicional"
-                  value="1"
-                  min="1"
-                  class="input-qtd"
-                />
-                <button
-                  class="btn-adicionar"
-                  onclick="
-                    adicionarComQuantidade(
-                      'Pão Caseiro Tradicional',
-                      12.0,
-                      'qtd-pao-tradicional',
-                    )
-                  "
-                >
-                  <i class="fas fa-plus"></i> Adicionar
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pão Recheado -->
-          <div class="produto-card">
-            <div class="produto-img-wrapper">
-              <img src="pao-recheado.jpg" alt="Pão caseiro recheado" onclick="abrirModalFoto(this.src)" />
-            </div>
-            <div class="produto-info">
-              <h3>Pão Caseiro Recheado</h3>
-              <p>
-                Saborosamente macio, fresquinho e recheado com muito capricho.
-              </p>
-              <div class="grupo-opcao">
-                <label for="opcao-pao-recheado">Escolha o sabor:</label>
-                <select id="opcao-pao-recheado" class="input-select">
-                  <option value="Frango com Requeijão|20.00">
-                    Frango com Requeijão
-                  </option>
-                  <option value="Calabresa com Queijo|20.00">
-                    Calabresa com Queijo
-                  </option>
-                  <option value="Presunto e Queijo|20.00">
-                    Presunto e Queijo
-                  </option>
-                </select>
-              </div>
-              <span class="preco">R$ 20,00</span>
-              <div class="controles-produto">
-                <input
-                  type="number"
-                  id="qtd-pao-recheado"
-                  value="1"
-                  min="1"
-                  class="input-qtd"
-                />
-                <button class="btn-adicionar" onclick="adicionarPaoRecheado()">
-                  <i class="fas fa-plus"></i> Adicionar
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Torta Fria -->
-          <div class="produto-card">
-            <div class="produto-img-wrapper">
-              <img src="torta-fria.jpg" alt="Torta Fria" onclick="abrirModalFoto(this.src)" />
-            </div>
-            <div class="produto-info">
-              <h3>Torta Fria</h3>
-              <p>Uma deliciosa torta fria, perfeita para qualquer ocasião.</p>
-              <span class="preco">R$ 180,00</span>
-              <div class="controles-produto">
-                <input
-                  type="number"
-                  id="qtd-torta-fria"
-                  value="1"
-                  min="1"
-                  class="input-qtd"
-                />
-                <button
-                  class="btn-adicionar"
-                  onclick="
-                    adicionarComQuantidade(
-                      'Torta Fria',
-                      180.0,
-                      'qtd-torta-fria',
-                    )
-                  "
-                >
-                  <i class="fas fa-plus"></i> Adicionar
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Coxinha -->
-          <div class="produto-card">
-            <div class="produto-img-wrapper">
-              <img
-                src="https://receitatodahora.com.br/wp-content/uploads/2022/03/coxinha-de-mandioca.jpg.webp"
-                alt="Coxinha"
-                onclick="abrirModalFoto(this.src)"
-              />
-            </div>
-            <div class="produto-info">
-              <h3>Coxinha de Frango</h3>
-              <p>Massa crocante por fora, recheio suculento e bem temperado.</p>
-              <span class="preco">R$ 6,00 unidade</span>
-              <div class="controles-produto">
-                <input
-                  type="number"
-                  id="qtd-coxinha"
-                  value="1"
-                  min="1"
-                  class="input-qtd"
-                />
-                <button
-                  class="btn-adicionar"
-                  onclick="
-                    adicionarComQuantidade(
-                      'Coxinha de Frango (Unidade)',
-                      6.0,
-                      'qtd-coxinha',
-                    )
-                  "
-                >
-                  <i class="fas fa-plus"></i> Adicionar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Seção: Doces e Biscoitos -->
-      <section class="secao-categoria" data-categoria="doces">
-        <h2 class="categoria-titulo">
-          <i class="fas fa-cookie"></i> Doces e Biscoitos
-        </h2>
-        <div class="produtos-grid">
-          <!-- Biscoitinho de Leite Condensado -->
-          <div class="produto-card">
-            <div class="produto-img-wrapper">
-              <img src="biscoitinho-de-leite-condensado.jpg" alt="Biscoitinho de Leite Condensado" onclick="abrirModalFoto(this.src)" />
-            </div>
-            <div class="produto-info">
-              <h3>Biscoitinho de Leite Condensado</h3>
-              <p>
-                Deliciosos biscoitinhos que derretem na boca, feitos com muito
-                carinho.
-              </p>
-              <span class="preco">R$ 9,00 <small>(pct 300g)</small></span>
-              <div class="controles-produto">
-                <input
-                  type="number"
-                  id="qtd-biscoito"
-                  value="1"
-                  min="1"
-                  class="input-qtd"
-                />
-                <button
-                  class="btn-adicionar"
-                  onclick="
-                    adicionarComQuantidade(
-                      'Biscoitinho de Leite Condensado',
-                      9.0,
-                      'qtd-biscoito',
-                    )
-                  "
-                >
-                  <i class="fas fa-plus"></i> Adicionar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Tela do Carrinho (Oculta por padrão) -->
-    <div
-      id="tela-carrinho"
-      class="carrinho-secao-completa"
-      style="display: none"
+<nav class="categorias-nav-container">
+  <div class="categorias-nav">
+    <button
+      class="tab-btn active"
+      onclick="filtrarCategoria('todos', event)"
     >
-      <div class="carrinho-header-topo">
-        <h2><i class="fas fa-shopping-bag"></i> Seu Carrinho</h2>
-        <button onclick="alternarTela('cardapio')" class="btn-voltar-cardapio">
-          <i class="fas fa-arrow-left"></i> Continuar Comprando
-        </button>
+      <i class="fas fa-th-large"></i> Cardápio Completo
+    </button>
+    <button class="tab-btn" onclick="filtrarCategoria('paes', event)">
+      <i class="fas fa-bread-slice"></i> Salgados e Pães
+    </button>
+    <button class="tab-btn" onclick="filtrarCategoria('doces', event)">
+      <i class="fas fa-cookie-bite"></i> Doces e Biscoitos
+    </button>
+  </div>
+</nav>
+
+<!-- Conteúdo Principal: Tela do Cardápio -->
+<main id="tela-cardapio" class="container">
+  <!-- Seção: Salgados e Pães -->
+  <section class="secao-categoria" data-categoria="paes">
+    <h2 class="categoria-titulo">
+      <i class="fas fa-utensils"></i> Salgados e Pães
+    </h2>
+    <div class="produtos-grid">
+      <!-- Pão Tradicional -->
+      <div class="produto-card">
+        <div class="produto-img-wrapper">
+          <img
+            src="pao-tradicional.jpg"
+            alt="Pão caseiro tradicional"
+            onclick="abrirModalFoto(this.src)"
+          />
+          <span class="badge-artesanal">100% Artesanal</span>
+        </div>
+        <div class="produto-info">
+          <h3>Pão Caseiro Tradicional</h3>
+          <p>Saborosamente macio, fresquinho e sem conservantes.</p>
+          <span class="preco">R$ 12,00</span>
+          <div class="controles-produto">
+            <input
+              type="number"
+              id="qtd-pao-tradicional"
+              value="1"
+              min="1"
+              class="input-qtd"
+            />
+            <button
+              class="btn-adicionar"
+              onclick="
+                adicionarComQuantidade(
+                  'Pão Caseiro Tradicional',
+                  12.0,
+                  'qtd-pao-tradicional',
+                )
+              "
+            >
+              <i class="fas fa-plus"></i> Adicionar
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="carrinho-corpo-card">
-        <ul id="lista-carrinho-itens">
-          <!-- Os itens adicionados aparecem aqui dinamicamente -->
-        </ul>
-
-        <div class="carrinho-total-container">
-          <span>Total do Pedido:</span>
-          <span id="carrinho-valor-total">R$ 0,00</span>
+      <!-- Pão Recheado -->
+      <div class="produto-card">
+        <div class="produto-img-wrapper">
+          <img
+            src="pao-recheado.jpg"
+            alt="Pão caseiro recheado"
+            onclick="abrirModalFoto(this.src)"
+          />
         </div>
-
-        <div class="formulario-cliente">
-          <h3><i class="fas fa-map-marker-alt"></i> Forma de Recebimento</h3>
-
-          <div class="campo-form">
-            <label for="tipo-recebimento">Como deseja receber?</label>
-            <select
-              id="tipo-recebimento"
-              class="input-select"
-              onchange="alternarTipoRecebimento()"
-            >
-              <option value="entrega">🚚 Entrega em Endereço</option>
-              <option value="retirada">🏃 Retirada no Local</option>
+        <div class="produto-info">
+          <h3>Pão Caseiro Recheado</h3>
+          <p>
+            Saborosamente macio, fresquinho e recheado com muito capricho.
+          </p>
+          <div class="grupo-opcao">
+            <label for="opcao-pao-recheado">Escolha o sabor:</label>
+            <select id="opcao-pao-recheado" class="input-select">
+              <option value="Frango com Requeijão|20.00">
+                Frango com Requeijão
+              </option>
+              <option value="Calabresa com Queijo|20.00">
+                Calabresa com Queijo
+              </option>
+              <option value="Presunto e Queijo|20.00">
+                Presunto e Queijo
+              </option>
             </select>
           </div>
-
-          <div class="campo-form">
-            <label for="nome-cliente">Seu Nome Completo</label>
+          <span class="preco">R$ 20,00</span>
+          <div class="controles-produto">
             <input
-              type="text"
-              id="nome-cliente"
-              placeholder="Digite seu nome"
-              class="input-texto"
+              type="number"
+              id="qtd-pao-recheado"
+              value="1"
+              min="1"
+              class="input-qtd"
             />
+            <button class="btn-adicionar" onclick="adicionarPaoRecheado()">
+              <i class="fas fa-plus"></i> Adicionar
+            </button>
           </div>
+        </div>
+      </div>
 
-          <div class="campo-form" id="bloco-endereco">
-            <label for="endereco-cliente">Endereço e Bairro</label>
+      <!-- Torta Fria -->
+      <div class="produto-card">
+        <div class="produto-img-wrapper">
+          <img
+            src="torta-fria.jpg"
+            alt="Torta Fria"
+            onclick="abrirModalFoto(this.src)"
+          />
+        </div>
+        <div class="produto-info">
+          <h3>Torta Fria</h3>
+          <p>Uma deliciosa torta fria, perfeita para qualquer ocasião.</p>
+          <span class="preco">R$ 180,00</span>
+          <div class="controles-produto">
             <input
-              type="text"
-              id="endereco-cliente"
-              placeholder="Rua, número, complemento e bairro"
-              class="input-texto"
+              type="number"
+              id="qtd-torta-fria"
+              value="1"
+              min="1"
+              class="input-qtd"
             />
+            <button
+              class="btn-adicionar"
+              onclick="
+                adicionarComQuantidade(
+                  'Torta Fria',
+                  180.0,
+                  'qtd-torta-fria',
+                )
+              "
+            >
+              <i class="fas fa-plus"></i> Adicionar
+            </button>
           </div>
+        </div>
+      </div>
 
-          <div class="aviso-frete" id="aviso-taxa">
-            <i class="fas fa-info-circle"></i> A taxa de entrega será calculada
-            e combinada diretamente via WhatsApp.
+      <!-- Coxinha -->
+      <div class="produto-card">
+        <div class="produto-img-wrapper">
+          <img
+            src="https://receitatodahora.com.br/wp-content/uploads/2022/03/coxinha-de-mandioca.jpg.webp"
+            alt="Coxinha"
+            onclick="abrirModalFoto(this.src)"
+          />
+        </div>
+        <div class="produto-info">
+          <h3>Coxinha de Frango</h3>
+          <p>Massa crocante por fora, recheio suculento e bem temperado.</p>
+          <span class="preco">R$ 6,00 unidade</span>
+          <div class="controles-produto">
+            <input
+              type="number"
+              id="qtd-coxinha"
+              value="1"
+              min="1"
+              class="input-qtd"
+            />
+            <button
+              class="btn-adicionar"
+              onclick="
+                adicionarComQuantidade(
+                  'Coxinha de Frango (Unidade)',
+                  6.0,
+                  'qtd-coxinha',
+                )
+              "
+            >
+              <i class="fas fa-plus"></i> Adicionar
+            </button>
           </div>
-
-          <button onclick="enviarPedidoWhatsApp()" class="btn-enviar-zap">
-            <i class="fab fa-whatsapp"></i> Finalizar Pedido no WhatsApp
-          </button>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Barra Flutuante do Carrinho (Rodapé) -->
-    <div
-      id="barra-carrinho-flutuante"
-      class="barra-flutuante oculto"
-      onclick="alternarTela('carrinho')"
-    >
-      <div class="barra-info-esq">
-        <div class="icone-carrinho-badge">
-          <i class="fas fa-shopping-bag"></i>
-          <span id="contador-itens-flutuante">0</span>
+  <!-- Seção: Doces e Biscoitos -->
+  <section class="secao-categoria" data-categoria="doces">
+    <h2 class="categoria-titulo">
+      <i class="fas fa-cookie"></i> Doces e Biscoitos
+    </h2>
+    <div class="produtos-grid">
+      <!-- Biscoitinho de Leite Condensado -->
+      <div class="produto-card">
+        <div class="produto-img-wrapper">
+          <img
+            src="biscoitinho-de-leite-condensado.jpg"
+            alt="Biscoitinho de Leite Condensado"
+            onclick="abrirModalFoto(this.src)"
+          />
         </div>
-        <span>Ver Carrinho</span>
-      </div>
-      <div class="barra-info-dir">
-        <strong id="valor-flutuante">R$ 0,00</strong>
-        <i class="fas fa-chevron-right"></i>
+        <div class="produto-info">
+          <h3>Biscoitinho de Leite Condensado</h3>
+          <p>
+            Deliciosos biscoitinhos que derretem na boca, feitos com muito
+            carinho.
+          </p>
+          <span class="preco">R$ 9,00 <small>(pct 300g)</small></span>
+          <div class="controles-produto">
+            <input
+              type="number"
+              id="qtd-biscoito"
+              value="1"
+              min="1"
+              class="input-qtd"
+            />
+            <button
+              class="btn-adicionar"
+              onclick="
+                adicionarComQuantidade(
+                  'Biscoitinho de Leite Condensado',
+                  9.0,
+                  'qtd-biscoito',
+                )
+              "
+            >
+              <i class="fas fa-plus"></i> Adicionar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+</main>
 
-    <!-- Modal de Ampliação de Foto -->
-    <div id="modal-foto" class="modal-foto oculto" onclick="fecharModalFoto()">
-      <span class="modal-fechar">&times;</span>
-      <img class="modal-conteudo" id="img-modal-zoom" />
+<!-- Tela do Carrinho (Oculta por padrão) -->
+<div
+  id="tela-carrinho"
+  class="carrinho-secao-completa"
+  style="display: none"
+>
+  <div class="carrinho-header-topo">
+    <h2><i class="fas fa-shopping-bag"></i> Seu Carrinho</h2>
+    <button onclick="alternarTela('cardapio')" class="btn-voltar-cardapio">
+      <i class="fas fa-arrow-left"></i> Continuar Comprando
+    </button>
+  </div>
+
+  <div class="carrinho-corpo-card">
+    <ul id="lista-carrinho-itens">
+      <!-- Os itens adicionados aparecem aqui dinamicamente -->
+    </ul>
+
+    <div class="carrinho-total-container">
+      <span>Total do Pedido:</span>
+      <span id="carrinho-valor-total">R$ 0,00</span>
     </div>
 
-    <script src="script.js"></script>
+    <div class="formulario-cliente">
+      <h3><i class="fas fa-map-marker-alt"></i> Forma de Recebimento</h3>
+
+      <div class="campo-form">
+        <label for="tipo-recebimento">Como deseja receber?</label>
+        <select
+          id="tipo-recebimento"
+          class="input-select"
+          onchange="alternarTipoRecebimento()"
+        >
+          <option value="entrega">🚚 Entrega em Endereço</option>
+          <option value="retirada">🏃 Retirada no Local</option>
+        </select>
+      </div>
+
+      <div class="campo-form">
+        <label for="nome-cliente">Seu Nome Completo</label>
+        <input
+          type="text"
+          id="nome-cliente"
+          placeholder="Digite seu nome"
+          class="input-texto"
+        />
+      </div>
+
+      <div class="campo-form" id="bloco-endereco">
+        <label for="endereco-cliente">Endereço e Bairro</label>
+        <input
+          type="text"
+          id="endereco-cliente"
+          placeholder="Rua, número, complemento e bairro"
+          class="input-texto"
+        />
+      </div>
+
+      <div class="aviso-frete" id="aviso-taxa">
+        <i class="fas fa-info-circle"></i> A taxa de entrega será calculada
+        e combinada diretamente via WhatsApp.
+      </div>
+
+      <button onclick="enviarPedidoWhatsApp()" class="btn-enviar-zap">
+        <i class="fab fa-whatsapp"></i> Finalizar Pedido no WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Barra Flutuante do Carrinho (Rodapé) -->
+<div
+  id="barra-carrinho-flutuante"
+  class="barra-flutuante oculto"
+  onclick="alternarTela('carrinho')"
+>
+  <div class="barra-info-esq">
+    <div class="icone-carrinho-badge">
+      <i class="fas fa-shopping-bag"></i>
+      <span id="contador-itens-flutuante">0</span>
+    </div>
+    <span>Ver Carrinho</span>
+  </div>
+  <div class="barra-info-dir">
+    <strong id="valor-flutuante">R$ 0,00</strong>
+    <i class="fas fa-chevron-right"></i>
+  </div>
+</div>
+
+<!-- Modal de Ampliação de Foto -->
+<div id="modal-foto" class="modal-foto oculto" onclick="fecharModalFoto()">
+  <span class="modal-fechar">&times;</span>
+  <img class="modal-conteudo" id="img-modal-zoom" alt="Imagem ampliada do produto" />
+</div>
+
+<script src="script.js"></script>
   </body>
 </html>
